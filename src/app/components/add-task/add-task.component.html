@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSubmit()" style="margin-bottom: 1rem;">
+
+  <div class="input-group mb-3">
+    <input type="text" name="text" [(ngModel)]="text" class="form-control" placeholder="Enter task">
+    <div class="input-group-append">
+      <input type="submit" value="Add Task" class="btn btn-outline-danger">
+    </div>
+  </div>
+
+</form>

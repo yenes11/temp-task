@@ -1,0 +1,7 @@
+<div *ngFor="let task of tasks"
+  [ngClass]="{ 'bg-info': task.status, 'bg-danger': task.status==false }"
+  class="card text-white mb-2"
+  style="cursor: pointer;"
+  (dblclick)="changeStatus(task)">
+  <div class="card-header">{{ task.text }}</div>
+</div>
