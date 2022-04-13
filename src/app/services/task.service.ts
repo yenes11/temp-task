@@ -4,7 +4,7 @@ import { Task } from '../task';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 }
 
 @Injectable({
@@ -23,7 +23,12 @@ export class TaskService {
     return this.http.post<Task>(this.url, task, httpOptions);
   }
 
-  changeStatus(task: Task) {
+  changeStatus(task: Task): Observable<Task> {
+    task.status = !task.status;
     return this.http.put<Task>(`${this.url}/${task.id}`, task, httpOptions);
+  }
+
+  deleteTask(task: Task) {
+    return this.http.delete<Task>(`${this.url}/${task.id}`);
   }
 }
